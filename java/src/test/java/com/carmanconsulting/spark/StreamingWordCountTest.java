@@ -16,7 +16,7 @@ public class StreamingWordCountTest {
 //----------------------------------------------------------------------------------------------------------------------
 
     public static void main(String[] args) {
-        SparkConf conf = new SparkConf().setMaster("local[2]").setAppName("NetworkWordCount");
+        SparkConf conf = new SparkConf().setMaster("local[*]").setAppName("NetworkWordCount");
         JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(5));
         JavaReceiverInputDStream<String> lines = jssc.socketTextStream("localhost", 9999);
         JavaDStream<String> words = lines.flatMap(line -> Arrays.asList(line.split(" ")));
