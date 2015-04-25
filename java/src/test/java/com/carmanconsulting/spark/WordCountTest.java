@@ -14,8 +14,15 @@ import java.util.Arrays;
 import java.util.Map;
 
 public class WordCountTest extends Assert {
+//----------------------------------------------------------------------------------------------------------------------
+// Fields
+//----------------------------------------------------------------------------------------------------------------------
 
     private JavaSparkContext context;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Other Methods
+//----------------------------------------------------------------------------------------------------------------------
 
     @Before
     public void initSparkContext() {
@@ -37,5 +44,4 @@ public class WordCountTest extends Assert {
         Map<String, Integer> map = counts.collectAsMap();
         assertEquals(1, map.get("Four").longValue());
     }
-
 }
